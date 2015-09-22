@@ -9,28 +9,27 @@ makeCacheMatrix=function(a=matrix()) {
 	inver.matrix=NULL
 	set=function(b) {
 		a <<- b
-    inver.matrix <<- NULL
-  }
-  get=function() a
-  setinver=function(inverse) inver.matrix <<- inverse
-  getinver=function() inver.matrix
-  list(set = set, get = get,setinver = setinver,getinver = getinver)
+    	inver.matrix <<- NULL
+  	}
+  	get=function() a
+  	setinver=function(inverse) inver.matrix <<- inverse
+  	getinver=function() inver.matrix
+  	list(set = set, get = get,setinver = setinver,getinver = getinver)
 	
 
 }
 
 cacheSolve=function(a, ...) {
 	inver.matrix=a$getinver()
-  if(!is.null(inver.matrix)) {
+	if(!is.null(inver.matrix)) {
 		print("getting cached data")
-    return(inver.matrix)
-      }
+    	return(inver.matrix)
+      	}
 	else{
 		matrix=a$get()
-    inver.matrix=solve(matrix)
-    a$setinver(inver.matrix)
-    return(inver.matrix)
+    		inver.matrix=solve(matrix)
+    		a$setinver(inver.matrix)
+    	return(inver.matrix)
 	}
 }
 
-cacheSolve(m)
