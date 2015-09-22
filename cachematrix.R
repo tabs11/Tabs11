@@ -21,6 +21,7 @@ makeCacheMatrix=function(a=matrix()) {
 
 cacheSolve=function(a, ...) {
 	inver.matrix=a$getinver()
+	# if the inverse has already been calculated
 	if(!is.null(inver.matrix)) {
 		print("getting cached data")
     	return(inver.matrix)
